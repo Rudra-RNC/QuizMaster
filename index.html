@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoQuiz — Environment Trivia</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <svg class="decorative-leaves" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M280 20 C200 20 20 80 20 280 C20 280 150 260 220 180 C290 100 280 20 280 20Z" fill="white"/>
+    <path d="M260 10 C180 60 60 160 40 290 C40 290 180 240 240 160 C300 80 260 10 260 10Z" fill="white" opacity="0.6"/>
+  </svg>
+
+  <svg class="decorative-leaves-bl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M280 20 C200 20 20 80 20 280 C20 280 150 260 220 180 C290 100 280 20 280 20Z" fill="white"/>
+  </svg>
+
+  <div class="app-container">
+    <header class="header">
+      <div class="header-badge">
+        <span class="leaf-icon">🌿</span>
+        <span>Environmental Science</span>
+      </div>
+      <h1>Eco<span>Quiz</span></h1>
+      <p>Test your knowledge of nature and our planet.</p>
+    </header>
+
+    <main style="width:100%">
+
+      <div id="screen-start" class="screen active">
+        <div class="card start-card">
+          <div class="emoji-row">🌍 🌱 ☀️ 💧 🌤️</div>
+          <h2>Ready to explore?</h2>
+          <p>Five questions about Earth's environment — from the water cycle to renewable energy. Perfect for curious minds in grades 4 and 5.</p>
+          <div class="info-pills">
+            <span class="pill">5 Questions</span>
+            <span class="pill">Multiple Choice</span>
+            <span class="pill">Instant Feedback</span>
+          </div>
+          <button class="btn btn-primary" id="btn-start">
+            Start Quiz →
+          </button>
+        </div>
+      </div>
+
+      <div id="screen-loading" class="screen">
+        <div class="card loading-state">
+          <div class="spinner"></div>
+          <p>Loading your quiz…</p>
+        </div>
+      </div>
+
+      <div id="screen-quiz" class="screen">
+        <div class="card">
+          <div class="progress-section">
+            <div class="progress-meta">
+              <span class="progress-label">Progress</span>
+              <span class="progress-count" id="progress-count">1 of 5</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="topic-tag" id="question-topic">🌿 Topic</div>
+
+          <p class="question-text" id="question-text">Loading question…</p>
+
+          <div class="options-grid" id="options-grid"></div>
+
+          <div class="feedback-box" id="feedback-box"></div>
+
+          <div class="next-btn-wrap">
+            <button class="btn btn-primary" id="btn-next" style="display:none">
+              Next Question →
+            </button>
+            <button class="btn btn-primary" id="btn-finish" style="display:none">
+              See Results →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-results" class="screen">
+        <div class="card">
+          <div class="results-header">
+            <div class="score-ring">
+              <svg width="120" height="120" viewBox="0 0 100 100">
+                <circle class="score-ring-bg" cx="50" cy="50" r="45"/>
+                <circle class="score-ring-fill" id="score-ring-fill" cx="50" cy="50" r="45"/>
+              </svg>
+              <div class="score-ring-text">
+                <span class="score-percent" id="result-percent">0%</span>
+                <span class="score-label">Score</span>
+              </div>
+            </div>
+            <h2 class="results-title" id="results-title">Great job!</h2>
+            <p class="results-subtitle" id="results-subtitle">Here's how you did.</p>
+          </div>
+
+          <div class="results-stats">
+            <div class="stat-card">
+              <span class="stat-number" id="stat-correct">0</span>
+              <span class="stat-desc">Correct</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="stat-wrong">0</span>
+              <span class="stat-desc">Incorrect</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="stat-total">5</span>
+              <span class="stat-desc">Total</span>
+            </div>
+          </div>
+
+          <div class="results-actions">
+            <button class="btn btn-primary" id="btn-restart">Play Again 🌱</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="screen-error" class="screen">
+        <div class="card error-state">
+          <p style="font-size:2rem;margin-bottom:1rem">🌧️</p>
+          <p id="error-message">Something went wrong. Please try again.</p>
+          <button class="btn btn-secondary" id="btn-retry" style="margin-top:1.5rem">Try Again</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
